@@ -9,31 +9,32 @@
   text-align: left;
 }
 
-.card > .img-container {
-  height: 60%;
+.card>.img-container {
+  height: 80%;
   overflow: hidden;
   text-align: center;
-  background:#6CADDC;
-}
-.card > .img-container > img {
-  width: 60%
+  background: #6CADDC;
 }
 
-.card > .content {
+.card>.img-container>img {
+  width: 80%
+}
+
+.card>.content {
   padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 15px;
+  font-size: 17px;
 }
 
-.card > .content > ul {
+.card>.content>ul {
   list-style-type: none;
 }
 
-.card > .content > ul > li {
-  margin-top: 18px;
+.card>.content>ul>li {
+  margin-top: 4px;
 }
 
-.card > .remove {
+.card>.remove {
   color: #ff1744;
   font-size: 48px;
   position: absolute;
@@ -42,6 +43,6 @@
   cursor: pointer;
 }
 
-.card > .remove:hover {
+.card>.remove:hover {
   color: #d50000;
 }

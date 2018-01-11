@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-    <h1 className="title">Friends List</h1>
+    <h1 className="title">Social Media Click Game</h1>
     
     {this.state.friendsList.map(friend => 
     (
