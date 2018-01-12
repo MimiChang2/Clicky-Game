@@ -9,13 +9,43 @@ class App extends React.Component {
   state = {
     friendsList: friends,
     clickedFriends: [],
-    score: 0
+    score: 0,
+    gameOver: false
   };
 
   clickedItem = (id) => {
-    const newClick = this.state.friendsList.filter(friend => {
-      return this.setState({ newClick: this.state.friendsList + 1 });
-    });
+
+    if (this.state.clickedFriends.indexOf(id) > -1) {
+      //game over
+      this.setState({ gameOver: true });
+    }
+    else {
+      const tempClickedFriends = this.state.clickedFriends.slice();
+
+      tempClickedFriends.push(id);
+
+      this.setState({
+        score: this.state.score + 1,
+        clickedFriends: tempClickedFriends
+      });
+    }
+
+    // const newArray = this.state.friendsList.filter(friend => {
+    //   if (friend.id === id) {
+    //     return true;
+    //   }
+    //   else {
+    //     return false;
+    //   }
+    // });
+
+  }
+
+  RestartGame = () => this.state = {
+    friendsList: friends,
+    clickedFriends: [],
+    score: 0,
+    gameOver: false
   }
 
   render() {
@@ -23,8 +53,10 @@ class App extends React.Component {
       <Wrapper>
     <h1 className="title">Click Game</h1>
     
-    <p className= "score"> Score </p>
-    {this.state.friendsList.map(friend => 
+    <p className= "score"> Score: {this.state.score} </p>
+    {this.state.gameOver ? <p>Game Over! <button onClick={() => this.RestartGame} >Restart Game </button></p> : 
+    
+    this.state.friendsList.map(friend => 
     (
     <FriendCard
     id = {friend.id}
@@ -33,10 +65,10 @@ class App extends React.Component {
     image={friend.image}
     origin={friend.origin}
     clicked = {this.clickedItem}
-    score = {this.score}
+    score = {this.state.score}
     />)
-     )};
-     
+     )
+    }
      
   </Wrapper>
     );
