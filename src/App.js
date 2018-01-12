@@ -41,12 +41,12 @@ class App extends React.Component {
 
   }
 
-  RestartGame = () => this.state = {
+  RestartGame = () => this.setState({
     friendsList: friends,
     clickedFriends: [],
     score: 0,
     gameOver: false
-  }
+  })
 
   render() {
     return (
@@ -54,7 +54,7 @@ class App extends React.Component {
     <h1 className="title">Click Game</h1>
     
     <p className= "score"> Score: {this.state.score} </p>
-    {this.state.gameOver ? <p>Game Over! <button onClick={() => this.RestartGame} >Restart Game </button></p> : 
+    {this.state.gameOver ? <p>Game Over! <button onClick={this.RestartGame} >Restart Game </button></p> : 
     
     this.state.friendsList.map(friend => 
     (
