@@ -7,35 +7,33 @@ import "./App.css";
 class App extends React.Component {
 
   state = {
-    friendsList: friends
+    friendsList: friends,
+    clickedFriends: [],
+    score: 0
   };
 
-  deleteFriend = (id) => {
-    const newArray = this.state.friendsList.filter(friend => {
-      if (friend.id === id) {
-        return false
-      }
-      else {
-        return true
-      }
-    })
-
-    this.setState({ friendsList: newArray });
+  clickedItem = (id) => {
+    const newClick = this.state.friendsList.filter(friend => {
+      return this.setState({ newClick: this.state.friendsList + 1 });
+    });
   }
 
   render() {
     return (
       <Wrapper>
-    <h1 className="title">Social Media Click Game</h1>
+    <h1 className="title">Click Game</h1>
     
+    <p className= "score"> Score </p>
     {this.state.friendsList.map(friend => 
     (
     <FriendCard
     id = {friend.id}
+    key = {friend.id}
     name= {friend.name}
     image={friend.image}
     origin={friend.origin}
-    deleteFriend = {this.deleteFriend}
+    clicked = {this.clickedItem}
+    score = {this.score}
     />)
      )};
      

@@ -1,10 +1,10 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 325px;
+  height: 300px;
   margin: 1rem;
   position: relative;
-  width: 325px;
+  width: 300px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
 }
@@ -36,9 +36,10 @@
 
 .card>.remove {
   color: #ff1744;
-  font-size: 48px;
+  font-size: 45px;
+  background-color: white;
   position: absolute;
-  top: -20px;
+  top: 0px;
   right: 5px;
   cursor: pointer;
 }
